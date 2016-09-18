@@ -84,7 +84,7 @@ public class NettyHttpRequestHandlerTest {
                 allowing(ctx).close();
                 will(returnValue(null));
 
-                atLeast(1).of(messageHandler).handle(with(any(Channel.class)), with(anything()));
+                atLeast(1).of(messageHandler).handle(with(any(Channel.class)), with(anything().toString()));
                 will(returnValue(response));
                 allowing(response).headers();
                 will(returnValue(new DefaultHttpHeaders()));
@@ -115,7 +115,7 @@ public class NettyHttpRequestHandlerTest {
                 allowing(ctx).close();
                 will(returnValue(null));
 
-                allowing(messageHandler).handle(with(any(Channel.class)), with(anything()));
+                allowing(messageHandler).handle(with(any(Channel.class)), with(anything().toString()));
                 will(returnValue(null));
             }
         });
